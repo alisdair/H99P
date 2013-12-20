@@ -2,5 +2,5 @@
 # More info at https://github.com/guard/guard#readme
 
 guard :shell do
-  watch(/.*\.hs$/) { `runhaskell Spec.hs` }
+  watch(/.*\.hs$/) { system "runhaskell Spec.hs" }
 end
