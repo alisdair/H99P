@@ -1,0 +1,33 @@
+name:                H99P
+version:             0.1.0.0
+-- synopsis:            
+-- description:         
+license:             MIT
+license-file:        LICENSE
+author:              Alisdair McDiarmid
+maintainer:          alisdair@mcdiarmid.org
+-- copyright:           
+-- category:            
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+test-suite spec
+  type:
+    exitcode-stdio-1.0
+  main-is:
+    Spec.hs
+  build-depends:
+    base >=4.6 && <4.7
+    ,hspec >=1.8 && <1.9
+    ,QuickCheck >=2.6 && <2.7
+
+library
+  exposed-modules:
+    Lists
+  -- other-modules:       
+  -- other-extensions:    
+  build-depends:
+    base >=4.6 && <4.7
+  default-language:
+    Haskell2010
