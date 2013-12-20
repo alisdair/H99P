@@ -5,6 +5,7 @@ module Lists
   ,elementAt
   ,length
   ,reverse
+  ,isPalindrome
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -28,3 +29,6 @@ length (_:xs) = 1 + length xs
 reverse :: [a] -> [a]
 reverse [] = []
 reverse (x:xs) = reverse xs ++ [x]
+
+isPalindrome:: Eq a => [a] -> Bool
+isPalindrome x = (reverse x) == x

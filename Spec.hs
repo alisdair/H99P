@@ -51,3 +51,13 @@ main = hspec $ do
 
     it "returns [3,2,1] for [1,2,3]" $ do
       Lists.reverse [1,2,3] `shouldBe` ([3,2,1] :: [Int])
+
+  describe "Lists.isPalindrome" $ do
+    it "returns false for [1,2,3]" $ do
+      Lists.isPalindrome [1,2,3] `shouldBe` (False :: Bool)
+
+    it "returns true for 'madamimadam'" $ do
+      Lists.isPalindrome "madamimadam" `shouldBe` (True :: Bool)
+
+    it "returns true for [1,2,4,8,16,8,4,2,1]" $ do
+      Lists.isPalindrome [1,2,4,8,16,8,4,2,1] `shouldBe` (True :: Bool)
