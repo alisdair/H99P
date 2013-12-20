@@ -28,3 +28,13 @@ main = hspec $ do
 
     it "throws an exception if the index is out of bounds" $ do
       evaluate (Lists.elementAt [1] 2) `shouldThrow` anyException
+
+  describe "Lists.length" $ do
+    it "returns 0 for empty list" $ do
+      Lists.length [] `shouldBe` (0 :: Int)
+
+    it "returns 1 for unit list" $ do
+      Lists.length [5] `shouldBe` (1 :: Int)
+
+    it "returns 5 for [1,3,5,7,9]" $ do
+      Lists.length [1,3,5,7,9] `shouldBe` (5 :: Int)
