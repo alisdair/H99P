@@ -7,7 +7,9 @@ module Lists
 import Prelude hiding (last)
 
 last :: [a] -> a
-last = head . reverse
+last [x] = x
+last (_:xs) = last xs
 
 butLast :: [a] -> a
-butLast = head . tail . reverse
+butLast [x,_] = x
+butLast (_:xs) = butLast xs
