@@ -38,3 +38,16 @@ main = hspec $ do
 
     it "returns 5 for [1,3,5,7,9]" $ do
       Lists.length [1,3,5,7,9] `shouldBe` (5 :: Int)
+
+  describe "Lists.reverse" $ do
+    it "returns [] for empty list" $ do
+      Lists.reverse [] `shouldBe` ([] :: [Int])
+
+    it "returns list for unit list" $ do
+      Lists.reverse [5] `shouldBe` ([5] :: [Int])
+
+    it "returns [2,1] for [1,2]" $ do
+      Lists.reverse [1,2] `shouldBe` ([2,1] :: [Int])
+
+    it "returns [3,2,1] for [1,2,3]" $ do
+      Lists.reverse [1,2,3] `shouldBe` ([3,2,1] :: [Int])

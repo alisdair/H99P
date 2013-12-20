@@ -4,9 +4,10 @@ module Lists
   ,butLast
   ,elementAt
   ,length
+  ,reverse
   ) where
 
-import Prelude hiding (last, length)
+import Prelude hiding (last, length, reverse)
 
 last :: [a] -> a
 last [x] = x
@@ -23,3 +24,7 @@ elementAt (_:xs) i = elementAt xs (i - 1)
 length :: [a] -> Int
 length [] = 0
 length (_:xs) = 1 + length xs
+
+reverse :: [a] -> [a]
+reverse [] = []
+reverse (x:xs) = reverse xs ++ [x]
