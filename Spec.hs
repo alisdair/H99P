@@ -25,3 +25,6 @@ main = hspec $ do
 
     it "returns the third element when given 3" $ do
       Lists.elementAt [5,6,7,8] 3 `shouldBe` (7 :: Int)
+
+    it "throws an exception if the index is out of bounds" $ do
+      evaluate (Lists.elementAt [1] 2) `shouldThrow` anyException
