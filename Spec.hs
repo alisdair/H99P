@@ -18,3 +18,10 @@ main = hspec $ do
 
     it "throws an exception if used with a unit list" $ do
       evaluate (Lists.butLast [1]) `shouldThrow` anyException
+
+  describe "Lists.elementAt" $ do
+    it "returns the first element when given 1" $ do
+      Lists.elementAt [1] 1 `shouldBe` (1 :: Int)
+
+    it "returns the third element when given 3" $ do
+      Lists.elementAt [5,6,7,8] 3 `shouldBe` (7 :: Int)
