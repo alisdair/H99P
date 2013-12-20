@@ -61,3 +61,13 @@ main = hspec $ do
 
     it "returns true for [1,2,4,8,16,8,4,2,1]" $ do
       Lists.isPalindrome [1,2,4,8,16,8,4,2,1] `shouldBe` (True :: Bool)
+
+  describe "Lists.flatten" $ do
+    it "flattens empty list" $ do
+      Lists.flatten (List []) `shouldBe` ([] :: [Int])
+
+    it "flattens unit list" $ do
+      Lists.flatten (Elem 5) `shouldBe` ([5] :: [Int])
+
+    it "flattens nested list" $ do
+      Lists.flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]]) `shouldBe` ([1,2,3,4,5] :: [Int])

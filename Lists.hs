@@ -6,6 +6,8 @@ module Lists
   ,length
   ,reverse
   ,isPalindrome
+  ,flatten
+  ,NestedList(Elem, List)
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -32,3 +34,9 @@ reverse (x:xs) = reverse xs ++ [x]
 
 isPalindrome:: Eq a => [a] -> Bool
 isPalindrome x = (reverse x) == x
+
+data NestedList a = Elem a | List [NestedList a]
+flatten :: NestedList a -> [a]
+flatten (Elem a) = [a]
+flatten (List []) = []
+flatten (List (x:xs)) = flatten x ++ flatten (List xs)
