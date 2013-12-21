@@ -10,6 +10,7 @@ module Lists
   ,NestedList(Elem, List)
   ,compress
   ,pack
+  ,rle
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -57,3 +58,8 @@ pack [] = []
 pack (x:xs) = (x:ys):(pack zs)
   where
     (ys,zs) = span (== x) xs
+
+rle :: Eq a => [a] -> [(Int, a)]
+rle xs = map count' (pack xs)
+  where
+    count' xs = (length xs, head xs)

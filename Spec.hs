@@ -79,3 +79,7 @@ main = hspec $ do
   describe "Lists.pack" $ do
     it "packs consecutive duplicates" $ do
       Lists.pack "aaaabccaadeeee" `shouldBe` (["aaaa", "b", "cc", "aa", "d", "eeee"] :: [String])
+
+  describe "Lists.rle" $ do
+    it "performs run-length encoding" $ do
+      Lists.rle "aaaabccaadeeee" `shouldBe` ([(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')] :: [(Int, Char)])
