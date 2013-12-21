@@ -8,6 +8,7 @@ module Lists
   ,isPalindrome
   ,flatten
   ,NestedList(Elem, List)
+  ,compress
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -40,3 +41,11 @@ flatten :: NestedList a -> [a]
 flatten (Elem a) = [a]
 flatten (List []) = []
 flatten (List (x:xs)) = flatten x ++ flatten (List xs)
+
+compress :: Eq a => [a] -> [a]
+compress = foldr compress' []
+  where
+    compress' x [] = [x]
+    compress' x xs
+      | head xs == x = xs
+      | otherwise    = [x] ++ xs
