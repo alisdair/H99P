@@ -75,3 +75,7 @@ main = hspec $ do
   describe "Lists.compress" $ do
     it "compresses repeated elements" $ do
       Lists.compress "aaaabccaadeeee" `shouldBe` ("abcade" :: String)
+
+  describe "Lists.pack" $ do
+    it "packs consecutive duplicates" $ do
+      Lists.pack "aaaabccaadeeee" `shouldBe` (["aaaa", "b", "cc", "aa", "d", "eeee"] :: [String])

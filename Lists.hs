@@ -9,9 +9,11 @@ module Lists
   ,flatten
   ,NestedList(Elem, List)
   ,compress
+  ,pack
   ) where
 
 import Prelude hiding (last, length, reverse)
+import Data.List (group)
 
 last :: [a] -> a
 last [x] = x
@@ -48,4 +50,10 @@ compress = foldr compress' []
     compress' x [] = [x]
     compress' x xs
       | head xs == x = xs
-      | otherwise    = [x] ++ xs
+      | otherwise    = x : xs
+
+pack :: Eq a => [a] -> [[a]]
+pack [] = []
+pack (x:xs) = (x:ys):(pack zs)
+  where
+    (ys,zs) = span (== x) xs
