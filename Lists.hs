@@ -60,6 +60,6 @@ pack (x:xs) = (x:ys):(pack zs)
     (ys,zs) = span (== x) xs
 
 rle :: Eq a => [a] -> [(Int, a)]
-rle xs = map count' (pack xs)
+rle = map count' . pack
   where
     count' xs = (length xs, head xs)
