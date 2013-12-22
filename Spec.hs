@@ -83,3 +83,7 @@ main = hspec $ do
   describe "Lists.rle" $ do
     it "performs run-length encoding" $ do
       Lists.rle "aaaabccaadeeee" `shouldBe` ([(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')] :: [(Int, Char)])
+
+  describe "Lists.rle2" $ do
+    it "performs modified run-length encoding" $ do
+      Lists.rle2 "aaaabccaadeeee" `shouldBe` ([Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'] :: [RunLength Char])

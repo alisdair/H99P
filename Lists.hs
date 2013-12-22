@@ -11,6 +11,8 @@ module Lists
   ,compress
   ,pack
   ,rle
+  ,RunLength(Single, Multiple)
+  ,rle2
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -63,3 +65,11 @@ rle :: Eq a => [a] -> [(Int, a)]
 rle = map count' . pack
   where
     count' xs = (length xs, head xs)
+
+data RunLength a = Single a | Multiple Int a
+   deriving (Show, Eq)
+rle2 :: Eq a => [a] -> [RunLength a]
+rle2 = map foo . rle
+  where
+    foo (1, x) = Single x
+    foo (i, x) = Multiple i x
