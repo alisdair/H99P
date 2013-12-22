@@ -76,8 +76,8 @@ rle2 = map foo . rle
     foo (i, x) = Multiple i x
 
 decodeModified :: [RunLength a] -> [a]
-decodeModified = foldr (++) [] . map foo
+decodeModified = concatMap foo
   where
     foo :: RunLength a -> [a]
     foo (Single x) = [x]
-    foo (Multiple i x) = take i $ repeat x
+    foo (Multiple i x) = replicate i x
