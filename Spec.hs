@@ -87,3 +87,7 @@ main = hspec $ do
   describe "Lists.rle2" $ do
     it "performs modified run-length encoding" $ do
       Lists.rle2 "aaaabccaadeeee" `shouldBe` ([Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'] :: [RunLength Char])
+
+  describe "Lists.decodeModified" $ do
+    it "decodes modified run-length encoded list" $ do
+      Lists.decodeModified ([Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'] :: [RunLength Char]) `shouldBe` "aaaabccaadeeee"

@@ -13,6 +13,7 @@ module Lists
   ,rle
   ,RunLength(Single, Multiple)
   ,rle2
+  ,decodeModified
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -73,3 +74,10 @@ rle2 = map foo . rle
   where
     foo (1, x) = Single x
     foo (i, x) = Multiple i x
+
+decodeModified :: [RunLength a] -> [a]
+decodeModified = foldr (++) [] . map foo
+  where
+    foo :: RunLength a -> [a]
+    foo (Single x) = [x]
+    foo (Multiple i x) = take i $ repeat x
