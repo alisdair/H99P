@@ -94,4 +94,8 @@ main = hspec $ do
 
   describe "Lists.dupli" $ do
     it "duplicates each element of the list" $ do
-      Lists.dupli ("abcd") `shouldBe` ("aabbccdd" :: String)
+      Lists.dupli "abcd" `shouldBe` ("aabbccdd" :: String)
+
+  describe "Lists.repli" $ do
+    it "replicates each element a given number of times" $ do
+      Lists.repli "abcd" 3 `shouldBe` ("aaabbbcccddd" :: String)

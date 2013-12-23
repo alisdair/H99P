@@ -15,6 +15,7 @@ module Lists
   ,rle2
   ,decodeModified
   ,dupli
+  ,repli
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -85,3 +86,6 @@ decodeModified = concatMap foo
 
 dupli :: [a] -> [a]
 dupli = concatMap $ replicate 2
+
+repli :: [a] -> Int -> [a]
+repli xs i = concatMap (replicate i) xs
