@@ -88,4 +88,4 @@ dupli :: [a] -> [a]
 dupli = concatMap $ replicate 2
 
 repli :: [a] -> Int -> [a]
-repli xs i = concatMap (replicate i) xs
+repli = flip $ concatMap . replicate
