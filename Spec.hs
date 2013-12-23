@@ -90,4 +90,8 @@ main = hspec $ do
 
   describe "Lists.decodeModified" $ do
     it "decodes modified run-length encoded list" $ do
-      Lists.decodeModified ([Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'] :: [RunLength Char]) `shouldBe` "aaaabccaadeeee"
+      Lists.decodeModified ([Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'] :: [RunLength Char]) `shouldBe` ("aaaabccaadeeee" :: String)
+
+  describe "Lists.dupli" $ do
+    it "duplicates each element of the list" $ do
+      Lists.dupli ("abcd") `shouldBe` ("aabbccdd" :: String)

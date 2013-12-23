@@ -14,6 +14,7 @@ module Lists
   ,RunLength(Single, Multiple)
   ,rle2
   ,decodeModified
+  ,dupli
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -81,3 +82,6 @@ decodeModified = concatMap foo
     foo :: RunLength a -> [a]
     foo (Single x) = [x]
     foo (Multiple i x) = replicate i x
+
+dupli :: [a] -> [a]
+dupli = concatMap $ replicate 2
