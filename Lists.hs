@@ -18,6 +18,7 @@ module Lists
   ,repli
   ,dropEvery
   ,split
+  ,slice
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -100,3 +101,7 @@ split xs 0 = ([], xs)
 split (x:xs) i = ([x] ++ f, r)
     where
       (f,r) = split xs $ i - 1
+
+slice :: [a] -> Int -> Int -> [a]
+slice [] _ _ = []
+slice xs i j = take (j - i + 1) $ drop (i - 1) xs

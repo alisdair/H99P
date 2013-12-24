@@ -119,3 +119,13 @@ main = hspec $ do
 
     it "splits with zero index" $ do
       Lists.split "abcdefghik" 0 `shouldBe` (("", "abcdefghik") :: (String, String))
+
+  describe "Lists.slice" $ do
+    it "slices empty list when called with 1 0" $ do
+      Lists.slice "abcde" 1 0 `shouldBe` ("" :: String)
+
+    it "slices first element when called with 1 1" $ do
+      Lists.slice "abcde" 1 1 `shouldBe` ("a" :: String)
+
+    it "slices sub-list" $ do
+      Lists.slice "abcde" 2 4 `shouldBe` ("bcd" :: String)
