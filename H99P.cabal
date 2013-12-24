@@ -12,11 +12,13 @@ build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
 
-test-suite spec
+test-suite lists-spec
   type:
     exitcode-stdio-1.0
+  hs-source-dirs:
+    src, spec
   main-is:
-    Spec.hs
+    ListsSpec.hs
   build-depends:
     base >=4.6 && <4.7
     ,hspec >=1.8 && <1.9
@@ -25,6 +27,8 @@ test-suite spec
 library
   exposed-modules:
     Lists
+  hs-source-dirs:
+    src
   -- other-modules:       
   -- other-extensions:    
   build-depends:
