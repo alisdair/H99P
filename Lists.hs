@@ -17,6 +17,7 @@ module Lists
   ,dupli
   ,repli
   ,dropEvery
+  ,split
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -93,3 +94,9 @@ repli = flip $ concatMap . replicate
 
 dropEvery :: [a] -> Int -> [a]
 dropEvery xs i =  map snd $ filter ((/=) i . fst) $ zip (cycle [1..i]) xs
+
+split :: [a] -> Int -> ([a], [a])
+split xs 0 = ([], xs)
+split (x:xs) i = ([x] ++ f, r)
+    where
+      (f,r) = split xs $ i - 1

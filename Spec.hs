@@ -112,3 +112,10 @@ main = hspec $ do
 
     it "drops every element" $ do
       Lists.dropEvery "abcde" 1 `shouldBe` ("" :: String)
+
+  describe "Lists.split" $ do
+    it "splits a list at an index" $ do
+      Lists.split "abcdefghik" 3 `shouldBe` (("abc", "defghik") :: (String, String))
+
+    it "splits with zero index" $ do
+      Lists.split "abcdefghik" 0 `shouldBe` (("", "abcdefghik") :: (String, String))
