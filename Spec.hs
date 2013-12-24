@@ -145,3 +145,7 @@ main = hspec $ do
 
     it "with n more negative than list length" $ do
       Lists.rotate "abc" (-5) `shouldBe` ("bca" :: String)
+
+  describe "Lists.removeAt" $ do
+    it "removes an element" $ do
+      Lists.removeAt 2 "abcd" `shouldBe` (('b', "acd") :: (Char, String))

@@ -20,6 +20,7 @@ module Lists
   ,split
   ,slice
   ,rotate
+  ,removeAt
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -111,3 +112,6 @@ rotate :: [a] -> Int -> [a]
 rotate xs 0 = xs
 rotate xs n | n > 0 = rotate (tail xs ++ [head xs]) (n - 1)
             | n < 0 = rotate xs (n `mod` length xs)
+
+removeAt :: Int -> [a] -> (a, [a])
+removeAt i xs = (elementAt xs i, (take (i - 1) xs) ++ (drop i xs))
