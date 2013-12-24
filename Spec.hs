@@ -99,3 +99,16 @@ main = hspec $ do
   describe "Lists.repli" $ do
     it "replicates each element a given number of times" $ do
       Lists.repli "abcd" 3 `shouldBe` ("aaabbbcccddd" :: String)
+
+  describe "Lists.dropEvery" $ do
+    it "drops no elements" $ do
+      Lists.dropEvery "abcde" 10 `shouldBe` ("abcde" :: String)
+
+    it "drops every 3rd element" $ do
+      Lists.dropEvery "abcdefghik" 3 `shouldBe` ("abdeghk" :: String)
+
+    it "drops every 2nd element" $ do
+      Lists.dropEvery "abcde" 2 `shouldBe` ("ace" :: String)
+
+    it "drops every element" $ do
+      Lists.dropEvery "abcde" 1 `shouldBe` ("" :: String)

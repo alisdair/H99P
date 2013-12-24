@@ -16,6 +16,7 @@ module Lists
   ,decodeModified
   ,dupli
   ,repli
+  ,dropEvery
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -89,3 +90,6 @@ dupli = concatMap . replicate $ 2
 
 repli :: [a] -> Int -> [a]
 repli = flip $ concatMap . replicate
+
+dropEvery :: [a] -> Int -> [a]
+dropEvery xs i =  map snd $ filter ((/=) i . fst) $ zip (cycle [1..i]) xs
