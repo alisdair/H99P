@@ -85,7 +85,7 @@ decodeModified = concatMap foo
     foo (Multiple i x) = replicate i x
 
 dupli :: [a] -> [a]
-dupli = concatMap $ replicate 2
+dupli = concatMap . replicate $ 2
 
 repli :: [a] -> Int -> [a]
 repli = flip $ concatMap . replicate
