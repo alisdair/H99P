@@ -19,6 +19,7 @@ module Lists
   ,dropEvery
   ,split
   ,slice
+  ,rotate
   ) where
 
 import Prelude hiding (last, length, reverse)
@@ -105,3 +106,8 @@ split (x:xs) i = ([x] ++ f, r)
 slice :: [a] -> Int -> Int -> [a]
 slice [] _ _ = []
 slice xs i j = take (j - i + 1) $ drop (i - 1) xs
+
+rotate :: [a] -> Int -> [a]
+rotate xs 0 = xs
+rotate xs n | n > 0 = rotate (tail xs ++ [head xs]) (n - 1)
+            | n < 0 = rotate xs (n `mod` length xs)

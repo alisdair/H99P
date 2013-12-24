@@ -129,3 +129,19 @@ main = hspec $ do
 
     it "slices sub-list" $ do
       Lists.slice "abcde" 2 4 `shouldBe` ("bcd" :: String)
+
+  describe "Lists.rotate" $ do
+    it "with n = 0" $ do
+      Lists.rotate "abcde" 0 `shouldBe` ("abcde" :: String)
+
+    it "with n = 1" $ do
+      Lists.rotate "abcde" 1 `shouldBe` ("bcdea" :: String)
+
+    it "with n more than list length" $ do
+      Lists.rotate "abcde" 6 `shouldBe` ("bcdea" :: String)
+
+    it "with n = -2" $ do
+      Lists.rotate "abcdefgh" (-2) `shouldBe` ("ghabcdef" :: String)
+
+    it "with n more negative than list length" $ do
+      Lists.rotate "abc" (-5) `shouldBe` ("bca" :: String)
